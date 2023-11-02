@@ -16,8 +16,8 @@
 package naming_client
 
 import (
-	"github.com/nacos-group/nacos-sdk-go/model"
-	"github.com/nacos-group/nacos-sdk-go/vo"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/model"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/vo"
 )
 
 //go:generate mockgen -destination ../../mock/mock_service_client_interface.go -package mock -source=./service_client_interface.go
@@ -103,4 +103,7 @@ type INamingClient interface {
 
 	//GetAllServicesInfo use to get all service info by page
 	GetAllServicesInfo(param vo.GetAllServiceInfoParam) (model.ServiceList, error)
+
+	//GetCatalogServices get all services from the Nacos catalog
+	GetCatalogServices(namesSpace string) (model.CatalogServiceList, error)
 }

@@ -24,8 +24,8 @@ import (
 	reflect "reflect"
 
 	gomock "github.com/golang/mock/gomock"
-	model "github.com/nacos-group/nacos-sdk-go/model"
-	vo "github.com/nacos-group/nacos-sdk-go/vo"
+	model "github.com/yefengzhichen/nacos-sdk-go-v1x/model"
+	vo "github.com/yefengzhichen/nacos-sdk-go-v1x/vo"
 )
 
 // MockINamingClient is a mock of INamingClient interface

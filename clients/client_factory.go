@@ -19,12 +19,12 @@ package clients
 import (
 	"errors"
 
-	"github.com/nacos-group/nacos-sdk-go/clients/config_client"
-	"github.com/nacos-group/nacos-sdk-go/clients/nacos_client"
-	"github.com/nacos-group/nacos-sdk-go/clients/naming_client"
-	"github.com/nacos-group/nacos-sdk-go/common/constant"
-	"github.com/nacos-group/nacos-sdk-go/common/http_agent"
-	"github.com/nacos-group/nacos-sdk-go/vo"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/clients/config_client"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/clients/nacos_client"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/clients/naming_client"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/common/constant"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/common/http_agent"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/vo"
 )
 
 // CreateConfigClient use to create config client
@@ -33,7 +33,7 @@ func CreateConfigClient(properties map[string]interface{}) (iClient config_clien
 	return NewConfigClient(param)
 }
 
-//CreateNamingClient use to create a nacos naming client
+// CreateNamingClient use to create a nacos naming client
 func CreateNamingClient(properties map[string]interface{}) (iClient naming_client.INamingClient, err error) {
 	param := getConfigParam(properties)
 	return NewNamingClient(param)

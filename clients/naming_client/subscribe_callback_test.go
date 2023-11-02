@@ -22,10 +22,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/nacos-group/nacos-sdk-go/model"
-	"github.com/nacos-group/nacos-sdk-go/util"
-	"github.com/nacos-group/nacos-sdk-go/vo"
 	"github.com/stretchr/testify/assert"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/model"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/util"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/vo"
 )
 
 func TestEventDispatcher_AddCallbackFuncs(t *testing.T) {

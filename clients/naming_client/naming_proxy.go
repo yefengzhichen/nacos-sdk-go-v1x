@@ -24,12 +24,12 @@ import (
 
 	"github.com/buger/jsonparser"
 
-	"github.com/nacos-group/nacos-sdk-go/common/constant"
-	"github.com/nacos-group/nacos-sdk-go/common/http_agent"
-	"github.com/nacos-group/nacos-sdk-go/common/logger"
-	"github.com/nacos-group/nacos-sdk-go/common/nacos_server"
-	"github.com/nacos-group/nacos-sdk-go/model"
-	"github.com/nacos-group/nacos-sdk-go/util"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/common/constant"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/common/http_agent"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/common/logger"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/common/nacos_server"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/model"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/util"
 )
 
 type NamingProxy struct {
@@ -211,4 +211,14 @@ func (proxy *NamingProxy) getSecurityMap() map[string]string {
 		result[constant.KEY_SECRET_KEY] = proxy.clientConfig.SecretKey
 	}
 	return result
+}
+
+func (proxy *NamingProxy) GetCatalogServiceList(namespace string, pageNo, pageSize uint32) (string,
+	error) {
+	param := make(map[string]string)
+	param["namespaceId"] = namespace
+	param["pageNo"] = strconv.Itoa(int(pageNo))
+	param["pageSize"] = strconv.Itoa(int(pageSize))
+	api := constant.CATALOG_SERVICE_PATH
+	return proxy.nacosServer.ReqApi(api, param, http.MethodGet, proxy.getSecurityMap())
 }

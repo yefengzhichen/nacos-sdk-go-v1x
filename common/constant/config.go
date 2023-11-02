@@ -17,7 +17,7 @@
 package constant
 
 import (
-	"github.com/nacos-group/nacos-sdk-go/common/logger"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/common/logger"
 
 	"gopkg.in/natefinch/lumberjack.v2"
 )

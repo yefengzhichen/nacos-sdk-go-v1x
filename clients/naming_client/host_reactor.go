@@ -26,10 +26,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/nacos-group/nacos-sdk-go/clients/cache"
-	"github.com/nacos-group/nacos-sdk-go/common/logger"
-	"github.com/nacos-group/nacos-sdk-go/model"
-	"github.com/nacos-group/nacos-sdk-go/util"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/clients/cache"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/common/logger"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/model"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/util"
 )
 
 type HostReactor struct {
@@ -225,4 +225,20 @@ func (s instanceSorter) Less(i, j int) bool {
 // sort instances
 func sortInstance(instances []model.Instance) {
 	sort.Sort(instanceSorter(instances))
+}
+
+func (hr *HostReactor) GetCatalogServices(nameSpace string, pageNo, pageSize uint32) model.CatalogServiceList {
+	data := model.CatalogServiceList{}
+	result, err := hr.serviceProxy.GetCatalogServiceList(nameSpace, pageNo, pageSize)
+	if err != nil {
+		logger.Errorf("GetCatalogServices return error! namespace:%s err:%+v", nameSpace, err)
+		return data
+	}
+
+	err = json.Unmarshal([]byte(result), &data)
+	if err != nil {
+		logger.Errorf("GetCatalogServices result json.Unmarshal error! namespace:%s", nameSpace)
+		return data
+	}
+	return data
 }

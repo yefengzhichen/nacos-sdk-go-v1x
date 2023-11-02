@@ -19,7 +19,7 @@ package nacos_error
 import (
 	"fmt"
 
-	"github.com/nacos-group/nacos-sdk-go/common/constant"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/common/constant"
 )
 
 type NacosError struct {

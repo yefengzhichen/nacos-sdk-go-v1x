@@ -26,13 +26,13 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/nacos-group/nacos-sdk-go/clients/cache"
-	"github.com/nacos-group/nacos-sdk-go/clients/nacos_client"
-	"github.com/nacos-group/nacos-sdk-go/common/constant"
-	"github.com/nacos-group/nacos-sdk-go/common/logger"
-	"github.com/nacos-group/nacos-sdk-go/model"
-	"github.com/nacos-group/nacos-sdk-go/util"
-	"github.com/nacos-group/nacos-sdk-go/vo"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/clients/cache"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/clients/nacos_client"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/common/constant"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/common/logger"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/model"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/util"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/vo"
 )
 
 type NamingClient struct {
@@ -345,4 +345,12 @@ func (sc *NamingClient) Subscribe(param *vo.SubscribeParam) error {
 func (sc *NamingClient) Unsubscribe(param *vo.SubscribeParam) error {
 	sc.subCallback.RemoveCallbackFuncs(util.GetGroupName(param.ServiceName, param.GroupName), strings.Join(param.Clusters, ","), &param.SubscribeCallback)
 	return nil
+}
+
+// GetCatalogServices get all services from the Nacos catalog
+func (sc *NamingClient) GetCatalogServices(namesSpace string) (model.CatalogServiceList, error) {
+	if len(namesSpace) == 0 {
+		namesSpace = constant.DEFAULT_NAMESPACE_ID
+	}
+	return sc.hostReactor.GetCatalogServices(namesSpace, 1, 10000), nil
 }

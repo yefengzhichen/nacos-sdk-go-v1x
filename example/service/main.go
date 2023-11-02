@@ -20,11 +20,11 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/nacos-group/nacos-sdk-go/clients"
-	"github.com/nacos-group/nacos-sdk-go/common/constant"
-	"github.com/nacos-group/nacos-sdk-go/model"
-	"github.com/nacos-group/nacos-sdk-go/util"
-	"github.com/nacos-group/nacos-sdk-go/vo"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/clients"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/common/constant"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/model"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/util"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/vo"
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 

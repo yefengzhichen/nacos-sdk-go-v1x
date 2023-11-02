@@ -22,16 +22,16 @@ import (
 	"testing"
 	"time"
 
-	"github.com/nacos-group/nacos-sdk-go/common/logger"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/common/logger"
 
-	"github.com/nacos-group/nacos-sdk-go/model"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/model"
 
-	"github.com/nacos-group/nacos-sdk-go/clients/nacos_client"
-	"github.com/nacos-group/nacos-sdk-go/common/constant"
-	"github.com/nacos-group/nacos-sdk-go/common/http_agent"
-	"github.com/nacos-group/nacos-sdk-go/util"
-	"github.com/nacos-group/nacos-sdk-go/vo"
 	"github.com/stretchr/testify/assert"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/clients/nacos_client"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/common/constant"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/common/http_agent"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/util"
+	"github.com/yefengzhichen/nacos-sdk-go-v1x/vo"
 )
 
 func TestHostReactor_GetServiceInfo(t *testing.T) {
